@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="最热TOP 40 | 风之翼灵的图片小站">
+    <meta name="keywords" content="最热TOP 40，自拍，美女，女神，丝袜，高跟，写真">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>最热TOP 40 | 风之翼灵的图片小站</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+    <link rel="stylesheet" href="__PUBLIC__/indexui/css/amazeui.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/indexui/css/app.css">
+</head>
+
+<body id="blog">
+    {include file="index/top" /} {include file="index/nav" /}
+    <hr>
+    <!-- content srart -->
+    <div class="am-g am-g-fixed blog-fixed blog-content">
+        <div id="container" class="am-animation-fade">
+            {volist name="list" id="vo"}
+            <div><a href="show?id={$vo.id}.html" target="_blank"><img src="{$vo.imgurl}">{$vo.title}</a></div>
+            {/volist}
+        </div>
+    </div>
+    <!-- content end -->
+    {include file="index/footer" /}
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="__PUBLIC__/indexui/js/jquery.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__PUBLIC__/indexui/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+    <script src="__PUBLIC__/indexui/js/amazeui.min.js"></script>
+    <script src="__PUBLIC__/indexui/js/pinto.min.js"></script>
+    <script src="__PUBLIC__/indexui/js/img.js"></script>
+</body>
+
+</html>

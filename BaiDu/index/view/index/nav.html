@@ -1,0 +1,49 @@
+  <nav class="am-g am-g-fixed blog-fixed blog-nav">
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only blog-button" data-am-collapse="{target: '#blog-collapse'}" >
+      <span class="am-sr-only">导航切换</span>
+      <span class="am-icon-bars"></span>
+    </button>
+
+    <div class="am-collapse am-topbar-collapse" id="blog-collapse">
+      <ul class="am-nav am-nav-pills am-topbar-nav">
+      {if condition="$str eq 0"}
+      <li class="am-active">
+          <a href="index">首页</a>
+        </li>
+       <li>
+          <a href="topnews.html">最热四十图</a>
+        </li>
+      {elseif condition="$str eq 1"/}
+      <li>
+          <a href="index">首页</a>
+        </li>
+       <li>
+          <a href="topnews.html">最热四十图</a>
+        </li>
+       {elseif condition="$str eq 2"/}
+        <li>
+          <a href="index">首页</a>
+        </li>
+       <li class="am-active">
+          <a href="topnews.html">最热四十图</a>
+        </li>
+      {/if}
+       <li class="am-dropdown" data-am-dropdown>
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+          Tag分类 <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+        {volist name="nav" id="vo"}
+        <li><a href="index?tag={$vo.name}">{$vo.name}</a></li>
+        {/volist}
+        </ul>
+      </li>
+      </ul>
+      <form class="am-topbar-form am-topbar-right am-form-inline" role="search" accept="{:url('index')}" method="get">
+        <div class="am-form-group">
+          <input type="text" class="am-form-field am-input-sm" placeholder="输入关键字回车搜索..." name='search'>
+          <button type="submit" class="am-btn am-btn-secondary am-radius am-btn-sm">搜</button>
+          </div>
+      </form>
+    </div>
+  </nav>

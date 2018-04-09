@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="风之翼灵的图片小站，自拍，美女，女神，丝袜，高跟，写真">
+    <meta name="description" content="风之翼灵的图片小站">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>风之翼灵的图片小站 - www.fungj.com</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+    <link rel="stylesheet" href="__PUBLIC__/indexui/css/amazeui.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/indexui/css/app.css">
+</head>
+
+<body id="blog">
+    {include file="index/top" /} {include file="index/nav" /}
+    <hr>
+    <!-- content srart -->
+    <div class="am-g am-g-fixed blog-fixed">
+        <div class="am-u-md-12 am-u-sm-12">
+            {volist name="list" id="vo"}
+            <div class="am-u-md-6 am-u-sm-12 am-u-lg-6">
+                <article class="am-g blog-entry-article" data-am-scrollspy="{animation: 'fade'}">
+                    <div class="am-u-lg-3 am-u-md-12 am-u-sm-12 blog-entry-img">
+                        <a href="show?id={$vo.id}.html" target="_blank"><img src="{$vo.imgurl}" alt="" class="am-u-sm-12" style="width: 100%;"></a></div>
+                    <div class="am-u-lg-9 am-u-md-12 am-u-sm-12 blog-entry-text am-text-left">
+                        <h4>
+            <a href="show?id={$vo.id}.html" target="_blank">{$vo.title}</a>
+          </h4>
+                        <hr data-am-widget="divider" style="" class="am-divider am-divider-dotted am-show-md-up">
+                        <p>
+                            <span class="am-icon-tag"></span> &nbsp;Tag：&nbsp;
+                            <span>
+              <a class="blog-color" href="index?tag={$vo.icolumn}" target="_blank">《{$vo.icolumn}》</a>
+            </span>
+                        </p>
+                        <p>
+                            <span class="am-icon-folder-open-o"></span> &nbsp;Author：&nbsp;
+                            <span class="am-text-secondary">@{$vo.author}</span>
+                        </p>
+                        <p>
+                            <span class="am-icon-line-chart"></span> &nbsp;Clicks：&nbsp;
+                            <span class="am-text-danger">{$vo.Clicks} °C</span>
+                        </p>
+                        <p>
+                            <span class="am-icon-calendar"></span> &nbsp;Uptime：&nbsp;
+                            <span class="am-text-warning">{$vo.uptime}</span>
+                        </p>
+                    </div>
+                </article>
+            </div>
+            {/volist}
+            <div class="am-text-center am-text-lg">
+                <small>{$page}</small>
+            </div>
+        </div>
+    </div>
+    <!-- content end -->
+    {include file="index/footer" /}
+    <!--[if (gte IE 9)|!(IE)]>
+  <!-->
+    <script src="__PUBLIC__/indexui/js/jquery.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lte IE 8 ]>
+  <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+  <script src="__PUBLIC__/indexui/js/amazeui.ie8polyfill.min.js"></script>
+  <![endif]-->
+    <script src="__PUBLIC__/indexui/js/amazeui.min.js"></script>
+    <!-- <script src="__PUBLIC__/indexui/js/app.js"></script>
+-->
+</body>
+
+</html>

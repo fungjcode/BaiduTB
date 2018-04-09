@@ -1,0 +1,120 @@
+<!doctype html>
+<html class="no-js fixed-layout">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>数据管理</title>
+  <meta name="description" content="数据管理">
+  <meta name="keywords" content="index">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+  <link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="__PUBLIC__/css/admin.css"></head>
+<body>
+  <!--[if lte IE 9]>
+  <p class="browsehappy">
+    你正在使用 <strong>过时</strong>
+    的浏览器，Amaze UI 暂不支持。 请
+    <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+    以获得更好的体验！
+  </p>
+  <![endif]-->
+  {include file="sysadmin/header" /}
+  <div class="am-cf admin-main">
+    {include file="sysadmin/sidebar" /}
+    <!-- content start -->
+    <div class="admin-content">
+      <div class="admin-content-body">
+        <div class="am-cf am-padding">
+          <div class="am-fl am-cf"> <strong class="am-text-primary am-text-lg">采集配置</strong>
+            /
+            <small>Baidu Config</small>
+          </div>
+        </div>
+        <hr>
+        <!-- 内容 -->
+        <div class="am-g">
+          <div class="am-u-sm-12">
+          <a href="{:url('addconfig')}" type="button" class="am-btn am-btn-secondary am-round">新增采集配置</a>
+            <form class="am-form">
+              <table class="am-table am-table-striped am-table-hover table-main">
+                <thead>
+                  <tr>
+                    <th class="table-title">贴吧名称</th>
+                    <th class="table-title">英文简写</th>
+                    <th class="table-type">开视页</th>
+                    <th class="table-date">结束页</th>
+                    <th class="table-date">采集次数</th>
+                    <th class="table-date">状态</th>
+                    <th class="table-set">操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {volist name="list" id="vo"}
+                  <tr>
+                    <td>{$vo.name}</td>
+                    <td>{$vo.en}</td>
+                    <td>{$vo.p_start}</td>
+                    <td>{$vo.p_end}</td>
+                    <td>{$vo.score} 次</td>
+                    <td>
+                      {eq name="$vo['str']" value="0"}
+                      <span class="am-badge am-badge-success am-radius">正常</span>
+                      {else/}
+                      <span class="am-badge am-badge-danger am-radius">关闭</span>
+                      {/eq}
+                    </td>
+                    <td>
+                      <div class="am-btn-toolbar">
+                        <div class="am-btn-group am-btn-group-xs">
+                        {eq name="$vo['str']" value="0"}
+                       <a href="{:url('sysadmin/stopdb',['id'=>$vo['id']])}" class="am-btn am-btn-default am-btn-xs am-hide-sm-only">
+                            <span class="am-icon-copy"></span>
+                            关闭
+                          </a>
+                      {else/}
+                      <a href="{:url('sysadmin/redb',['id'=>$vo['id']])}" class="am-btn am-btn-default am-btn-xs am-hide-sm-only">
+                            <span class="am-icon-copy"></span>
+                            恢复
+                          </a>
+                      {/eq}
+                          <a href="{:url('sysadmin/deldbconfig',['id'=>$vo['id']])}" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
+                            <span class="am-icon-trash-o"></span>
+                            删除
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  {/volist}
+                </tbody>
+              </table>
+              <hr />
+              <p>注：关闭不会删除数据，关闭后不采集可恢复；删除后无法恢复<br />采集起始页和结束页不要太大，避免超时<br />如已采集过数据，建议不要删除配置</p>
+            </form>
+          </div>
+
+        </div>
+        <!-- 内容END --> </div>
+      {include file="sysadmin/footer" /}
+    </div>
+    <!-- content end --> </div>
+
+  <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+  <!--[if lt IE 9]>
+  <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+  <script src="__PUBLIC__/js/amazeui.ie8polyfill.min.js"></script>
+  <![endif]-->
+
+  <!--[if (gte IE 9)|!(IE)]>
+  <!-->
+  <script src="__PUBLIC__/js/jquery.min.js"></script>
+  <!--<![endif]-->
+  <script src="__PUBLIC__/js/amazeui.min.js"></script>
+  <script src="__PUBLIC__/js/app.js"></script>
+</body>
+</html>
